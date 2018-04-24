@@ -224,18 +224,18 @@
 					<li><a href="${ctx }/view/commission/Ext">额外佣金审核</a></li>
 				</ul></li>
 
-			<li><a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">经纪服务专员测试 </span><span class="fa arrow"></span></a>
-				<ul class="nav nav-second-level collapse">
-					<li><a href="${ctx }/view/firm/list2">经纪公司维护</a></li>
-				</ul></li>
+			<#--<li><a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">经纪服务专员测试 </span><span class="fa arrow"></span></a>-->
+				<#--<ul class="nav nav-second-level collapse">-->
+					<#--<li><a href="${ctx }/view/firm/list2">经纪公司维护</a></li>-->
+				<#--</ul></li>-->
 
-			<li><a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">客服专员 </span><span class="fa arrow"></span></a>
-				<ul class="nav nav-second-level collapse">
-					<li><a href="${ctx }/view/custintent/custSupport">客户意向审核</a></li>
-				</ul></li>
+			<#--<li><a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">客服专员 </span><span class="fa arrow"></span></a>-->
+				<#--<ul class="nav nav-second-level collapse">-->
+					<#--<li><a href="${ctx }/view/custintent/custSupport">客户意向审核</a></li>-->
+				<#--</ul></li>-->
 
-			<li class="landing_link"><a target="_blank" href="landing.html"><i class="fa fa-star"></i> <span class="nav-label">系统更新</span> <span class="label label-warning pull-right">NEW</span></a></li>
-			<li class="special_link"><a href="package.html"><i class="fa fa-database"></i> <span class="nav-label">购买服务</span></a></li>
+			<#--<li class="landing_link"><a target="_blank" href="landing.html"><i class="fa fa-star"></i> <span class="nav-label">系统更新</span> <span class="label label-warning pull-right">NEW</span></a></li>-->
+			<#--<li class="special_link"><a href="package.html"><i class="fa fa-database"></i> <span class="nav-label">购买服务</span></a></li>-->
 		</ul>
 	</div>
 </div>
