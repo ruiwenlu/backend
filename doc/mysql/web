@@ -1,0 +1,124 @@
+CREATE TABLE `best_seller` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `best_seller_id` int(11) NOT NULL,
+  `class_name` varchar(100) NOT NULL COMMENT '首页分类名称',
+  `seq` int(11) NOT NULL,
+  `create_time` datetime NOT NULL,
+  `update_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+CREATE TABLE `best_seller_product` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `best_seller_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `seq` int(11) NOT NULL,
+  `create_time` datetime NOT NULL,
+  `update_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+CREATE TABLE `case` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(100) NOT NULL,
+  `author` varchar(100) NOT NULL,
+  `pic_url` varchar(200) DEFAULT NULL,
+  `context` text NOT NULL,
+  `create_time` datetime NOT NULL,
+  `update_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+CREATE TABLE `case_category` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `case_id` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL,
+  `seq` int(11) NOT NULL,
+  `create_time` datetime NOT NULL,
+  `update_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+CREATE TABLE `case_comment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `case_id` int(11) NOT NULL,
+  `author` varchar(100) NOT NULL,
+  `comment` varchar(200) DEFAULT NULL,
+  `create_time` datetime NOT NULL,
+  `update_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+CREATE TABLE `category` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `category_name` varchar(100) NOT NULL,
+  `seq` int(11) NOT NULL,
+  `create_time` datetime DEFAULT NULL,
+  `update_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+CREATE TABLE `news` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(100) NOT NULL,
+  `author` varchar(100) NOT NULL,
+  `pic_url` varchar(200) DEFAULT NULL,
+  `context` text NOT NULL,
+  `create_time` datetime NOT NULL,
+  `update_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+CREATE TABLE `picture` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pic_url` varchar(200) NOT NULL,
+  `pic_type` smallint(6) NOT NULL COMMENT '0 大,1 中,2 小',
+  `busz_id` int(11) DEFAULT NULL,
+  `busz_type` smallint(6) DEFAULT '0' COMMENT '0产品,1轮播图,2案列图,3新闻图,4技术支持图',
+  `seq` int(11) DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL,
+  `update_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=47 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `product` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name_zh` varchar(100) NOT NULL,
+  `name_en` varchar(100) DEFAULT NULL,
+  `delivery_time` int(11) NOT NULL COMMENT '货期',
+  `stock` int(11) NOT NULL DEFAULT '1' COMMENT '0无库存，1有库存',
+  `sale_price` decimal(10,2) NOT NULL COMMENT '实际售卖价格',
+  `market_price` decimal(10,2) NOT NULL COMMENT '市场价格',
+  `long_description` text,
+  `description` varchar(2048) DEFAULT NULL,
+  `reviews` int(11) NOT NULL DEFAULT '1' COMMENT '浏览数',
+  `sale_type` tinyint(4) NOT NULL DEFAULT '2' COMMENT '0 新品，1打折，2热卖',
+  `stars` tinyint(4) DEFAULT '5' COMMENT '星级',
+  `create_time` datetime DEFAULT NULL,
+  `update_time` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+CREATE TABLE `product_category` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_id` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL,
+  `seq` int(11) NOT NULL,
+  `create_time` datetime DEFAULT NULL,
+  `update_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `product_promotion` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_id` int(11) NOT NULL,
+  `seq` int(11) NOT NULL,
+  `promotion_type` smallint(6) NOT NULL DEFAULT '0' COMMENT '0推荐商品,1特色商品,2新款商品',
+  `create_time` datetime NOT NULL,
+  `update_time` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `support` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(100) NOT NULL,
+  `author` varchar(100) NOT NULL,
+  `pic_url` varchar(200) DEFAULT NULL,
+  `context` text NOT NULL,
+  `create_time` datetime NOT NULL,
+  `update_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
