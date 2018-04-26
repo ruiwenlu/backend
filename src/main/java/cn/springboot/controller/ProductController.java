@@ -16,6 +16,7 @@ public class ProductController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView getProducts() {
         ModelAndView modelAndView = new ModelAndView("view/project/add6");
+        log.info("test");
         return modelAndView;
     }
 
