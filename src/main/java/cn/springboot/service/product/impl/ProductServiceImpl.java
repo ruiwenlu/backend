@@ -41,4 +41,9 @@ public class ProductServiceImpl implements ProductService {
         log.info("# 查询默认数据库 page.toString()={}", page.toString());
         return page;
     }
+
+    @Override
+    public boolean addProduct(Product product) {
+        return false;
+    }
 }

@@ -155,56 +155,51 @@
             <div class="rslide-body">
 
 
-                <form class="form-horizontal" id="add_form" >
-                    <div class="form-group">
-                        <label class="col-sm-10 col-md-4 col-lg-3 control-label">物业类型<span class="text-danger">*</span></label>
-                        <div class="col-sm-11 col-md-7 col-lg-8">
-                            <select name="business" class="form-control input-s-sm inline">
-                                <option value="">请选择物业类型</option>
-                                <option value="1">链家网</option>
-                                <option value="2">房多多</option>
-                            </select>
+                [#--<form class="form-horizontal" id="add_form" >--]
+                    [#--<div class="form-group">--]
+                        [#--<label class="col-sm-10 col-md-4 col-lg-3 control-label">物业类型<span class="text-danger">*</span></label>--]
+                        [#--<div class="col-sm-11 col-md-7 col-lg-8">--]
+                            [#--<select name="business" class="form-control input-s-sm inline">--]
+                                [#--<option value="">请选择物业类型</option>--]
+                                [#--<option value="1">链家网</option>--]
+                                [#--<option value="2">房多多</option>--]
+                            [#--</select>--]
+                        [#--</div>--]
+                    [#--</div>--]
+                    [#--<div class="form-group">--]
+                        [#--<label class="col-sm-10 col-md-4 col-lg-3 control-label">产品中文名称 <span class="text-danger">*</span></label>--]
+                        [#--<div class="col-sm-11 col-md-7 col-lg-8"><input type="text" placeholder="" value="" class="form-control" required="required"/></div>--]
+                    [#--</div>--]
+                    [#--<div class="form-group">--]
+                        [#--<label class="col-sm-10 col-md-4 col-lg-3 control-label">团购费补贴金额 <span class="text-danger">*</span></label>--]
+                        [#--<div class="col-sm-11 col-md-7 col-lg-8"><input type="text" placeholder="" value="" class="form-control" required="required"/></div>--]
+                    [#--</div>--]
+                    [#--<div class="form-group">--]
+                        [#--<label class="col-sm-10 col-md-4 col-lg-3 control-label"></label>--]
+                        [#--<div class="col-sm-11 col-md-7 col-lg-8"><button data-loading-text="数据正在提交..." type="submit" autocomplete="off" id="myButton" class="btn btn-primary btn-rounded btn-block" > <i class="fa fa-check"></i> 填写完成，提交</button></div>--]
+                    [#--</div>--]
+                [#--</form>--]
+                    <form name="entity" id="input_form" class="form-horizontal">
+
+                        <div class="form-group">
+                            <label class="col-sm-12 col-md-4 col-lg-2 control-label" for="nameZH"><span class="text-danger">* </span>产品中文</label>
+                            <div class="col-sm-12 col-md-7 col-lg-9">
+                                <input type="text" id="title" name="title" value="" placeholder="请输入产品中文名称" class="form-control" required>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-10 col-md-4 col-lg-3 control-label">产品属性 <span class="text-danger">*</span></label>
-                        <div class="col-sm-11 col-md-7 col-lg-8">
-                            <label class="checkbox-inline p-l-n"><input type="radio" name="radio2" class="i-checks" value="1" > 团购项目 </label>
-                            <label class="checkbox-inline"><input type="radio" name="radio2" class="i-checks" value="2" checked> 导客项目 </label>
+
+                        <div class="hr-line-dashed"></div>
+
+
+                        <div class="form-group">
+                            <div class="col-sm-4 col-sm-offset-2">
+                                <button class="btn btn-primary" type="submit">
+                                    <i class="fa fa-check"></i> 填写完成，提交！
+                                </button>
+                                <button class="btn btn-white" type="reset">取消</button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-10 col-md-4 col-lg-3 control-label">名称 <span class="text-danger">*</span></label>
-                        <div class="col-sm-11 col-md-7 col-lg-8"><input placeholder="" value="" type="text" class="form-control" ></div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-10 col-md-4 col-lg-3 control-label">款项来源 <span class="text-danger">*</span></label>
-                        <div class="col-sm-11 col-md-7 col-lg-8">
-                            <label class="checkbox-inline p-l-n"><input type="radio" name="radio1" class="i-checks" value="1" > 客户剧团购费 </label>
-                            <label class="checkbox-inline"><input type="radio" name="radio1" class="i-checks" value="2" checked> 开发商补助 </label>
-                            <label class="checkbox-inline"><input type="radio" name="radio1" class="i-checks" value="2" checked> 混合 </label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-10 col-md-4 col-lg-3 control-label">开发商补助方式 <span class="text-danger">*</span></label>
-                        <div class="col-sm-11 col-md-7 col-lg-8">
-                            <label class="checkbox-inline p-l-n"><input type="radio" name="radio2" class="i-checks" value="1" > 按总价千分比 </label>
-                            <label class="checkbox-inline"><input type="radio" name="radio2" class="i-checks" value="2" checked> 按固定金额 </label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-10 col-md-4 col-lg-3 control-label">开发商补助金额 <span class="text-danger">*</span></label>
-                        <div class="col-sm-11 col-md-7 col-lg-8"><input type="text" placeholder="" value="" class="form-control" required="required"/></div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-10 col-md-4 col-lg-3 control-label">团购费补贴金额 <span class="text-danger">*</span></label>
-                        <div class="col-sm-11 col-md-7 col-lg-8"><input type="text" placeholder="" value="" class="form-control" required="required"/></div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-10 col-md-4 col-lg-3 control-label"></label>
-                        <div class="col-sm-11 col-md-7 col-lg-8"><button data-loading-text="数据正在提交..." type="submit" autocomplete="off" id="myButton" class="btn btn-primary btn-rounded btn-block" > <i class="fa fa-check"></i> 填写完成，提交</button></div>
-                    </div>
-                </form>
+                    </form>
             </div>
     </div>
     <!-- 全局 scripts -->
@@ -225,6 +220,7 @@
 
     <script>
         $(document).ready(function () {
+            var _ctx = '${ctx}';
             $("#add_form").validate({
                 submitHandler: function (form) {
                     $('#myButton').button('loading')
@@ -234,18 +230,28 @@
             function addform(form) {
                 $.ajax(
                     {
-                        url: "?",
+                        url: _ctx + "/product/add",
                         type: "post",
                         data: $(form).serialize(),
-                        success: function (data) {
-                            toastr.success('', '配置修改成功！');
+//                        success: function (data) {
+//                            toastr.success('', '配置修改成功！');
+//                        },
+//                        error:function(error){
+//                            setTimeout(function(){
+//                                $('#myButton').button('reset')
+//                                $("#rslide").rslide("hide")
+//                            },3000);
+//                            toastr.error('错误代码：登陆超时，请重新登陆！', '配置修改失败！');
+//                        }
+                        success: function(data) {
+                            if (data.status == '1') {
+                                toastr.success('', data.msg);
+                                window.location.href=_ctx+"/product/page";
+                            } else
+                                toastr.error('', data.msg);
                         },
-                        error:function(error){
-                            setTimeout(function(){
-                                $('#myButton').button('reset')
-                                $("#rslide").rslide("hide")
-                            },3000);
-                            toastr.error('错误代码：登陆超时，请重新登陆！', '配置修改失败！');
+                        error: function(data) {
+                            toastr.error('', '发布失败');
                         }
                     }
                 );

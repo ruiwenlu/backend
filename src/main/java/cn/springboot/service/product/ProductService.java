@@ -9,4 +9,6 @@ import com.github.pagehelper.PageInfo;
 public interface ProductService {
 
     PageInfo<Product> findProductsByPage(Integer pageNum, String keywords);
+
+    boolean addProduct(Product product);
 }
