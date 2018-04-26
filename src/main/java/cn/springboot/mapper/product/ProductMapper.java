@@ -4,6 +4,7 @@ import cn.springboot.mapper.BaseMapper;
 import cn.springboot.model.product.Product;
 import cn.springboot.model.simple.News;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -14,5 +15,5 @@ import java.util.List;
 public interface ProductMapper extends BaseMapper<Integer,Product>{
 
 
-    List<Product> findProductsByPage(String keywords);
+    List<Product> findProductsByPage(@Param("keywords") String keywords);
 }
