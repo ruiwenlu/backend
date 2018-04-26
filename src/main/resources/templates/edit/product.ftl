@@ -38,22 +38,22 @@
             <!---顶部状态栏 end-->
 
             <!--------当前位置----->
-            <div class="row  border-bottom white-bg page-heading">
-                <div class="col-sm-4">
-                    <h2>楼盘管理</h2>
-                    <ol class="breadcrumb">
-                        <li>
-                            <a href="${ctx}/index">管理首页</a>
-                        </li>
-                        <li>
-                            楼盘管理
-                        </li>
-                        <li class="active">
-                            编辑楼盘
-                        </li>
-                    </ol>
-                </div>
-            </div>
+            [#--<div class="row  border-bottom white-bg page-heading">--]
+                [#--<div class="col-sm-4">--]
+                    [#--<h2>楼盘管理</h2>--]
+                    [#--<ol class="breadcrumb">--]
+                        [#--<li>--]
+                            [#--<a href="${ctx}/index">管理首页</a>--]
+                        [#--</li>--]
+                        [#--<li>--]
+                            [#--楼盘管理--]
+                        [#--</li>--]
+                        [#--<li class="active">--]
+                            [#--编辑楼盘--]
+                        [#--</li>--]
+                    [#--</ol>--]
+                [#--</div>--]
+            [#--</div>--]
 
             <!-----内容区域---->
             <div class="wrapper wrapper-content animated fadeInRight">
@@ -61,12 +61,12 @@
                     <div class="col-md-12">
                         <div class="stepy-tab">
                             <ul id="default-titles" class="stepy-titles clearfix">
+                                <li class="current-step"><div>产品维护</div></li>
                                 <li><a href="${ctx }/view/project/add"><div>基础信息</div></a></li>
                                 <li ><a href="${ctx }/view/project/add2"><div>户型管理</div></a></li>
                                 <li ><a href="${ctx }/view/project/add3"><div>楼盘相册</div></a></li>
                                 <li ><a href="${ctx }/view/project/add4"><div>销控管理</div></a></li>
                                 <li><a href="${ctx }/view/project/add5"><div>合作信息</div></a></li>
-                                <li class="current-step"><div>产品维护</div></li>
                                 <li ><a href="${ctx }/view/project/add7"><div>楼盘相册</div></a></li>
                                 <li ><a href="${ctx }/view/project/add8"><div>销控管理</div></a></li>
                                 <li ><a href="${ctx }/view/project/add9"><div>销控管理</div></a></li>
@@ -75,11 +75,11 @@
                     </div>
                 </div>
                 <div class="ibox float-e-margins">
-                    <div class="ibox-heading">
-                        <div class="ibox-title">
-                            大城小爱 产品管理
-                        </div>
-                    </div>
+                    [#--<div class="ibox-heading">--]
+                        [#--<div class="ibox-title">--]
+                            [#--大城小爱 产品管理--]
+                        [#--</div>--]
+                    [#--</div>--]
                     <div class="ibox-content p-t-md">
                         <div class="m-b-sm">
                             <a href="#add_rslide" class="btn btn-primary" data-id="555555" data-toggle="rslide" role="button" data-title="新增产品"  >新增产品 <i class="fa fa-plus"></i></a>
@@ -88,48 +88,81 @@
                             <table class="table table-centerbody table-striped table-condensed text-nowrap border-top" id="editable-sample">
                                 <thead>
                                 <tr>
-                                    <th>物业类型</th>
-                                    <th>名称</th>
-                                    <th>属性</th>
-                                    <th>款项来源</th>
+                                    <th>产品id</th>
+                                    <th>中文名称</th>
+                                    [#--<th>英文名称</th>--]
+                                    <th>货期（天）</th>
+                                    <th>库存</th>
+                                    <th>市场价</th>
+                                    <th>销售价</th>
+                                    [#--<th>简介</th>--]
+                                    [#--<th>详情</th>--]
+                                    <th>浏览数</th>
+                                    <th>销售类型</th>
+                                    <th>星级</th>
+                                    <th>创建时间</th>
+                                    <th>更新时间</th>
                                     <th class="text-right">操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td >住宅</td>
-                                    <td>万达物业</td>
-                                    <td>导客</td>
-                                    <td>混合</td>
-                                    <td class="text-right text-nowrap">
-                                        <div class="btn-group ">
-                                            <a href="#edit_rslide" class="btn btn-white btn-sm" data-id="555555" data-toggle="rslide" data-title="阳光两房5555 信息编辑"><i class="fa fa-pencil" ></i>  编辑</a>
-                                            <a href="view.html" class="btn btn-white btn-sm"><i class="fa fa-trash"></i>  删除</a>
-                                        </div>
-                                    </td>
-                                </tr>
+                                [#if page?? && page.list?? && (page.list?size > 0) ]
+                                    [#list page.list as n]
+                                        <tr>
+                                            <td>${n.id }</td>
+                                            <td>${n.nameZH }</td>
+                                            [#--<td>${n.nameEN }</td>--]
+                                            <td>${n.deliveryTime }</td>
+                                            <td>${n.stock }</td>
+                                            <td>${n.marketPrice }</td>
+                                            <td>${n.salePrice }</td>
+                                            [#--<td>${n.description }</td>--]
+                                            [#--<td>${n.longDescription }</td>--]
+                                            <td>${n.reviews }</td>
+                                            <td>${n.saleType }</td>
+                                            <td>${n.stars }</td>
+                                            <td>${n.createTime?string("yyyy-MM-dd HH:mm") }</td>
+                                            <td>${n.updateTime?string("yyyy-MM-dd HH:mm") }</td>
+                                            <td class="text-right text-nowrap">
+                                                <div class="btn-group ">
+                                                    <a href="#edit_rslide" class="btn btn-white btn-sm" data-id="555555" data-toggle="rslide" data-title="阳光两房5555 信息编辑"><i class="fa fa-pencil" ></i>  编辑</a>
+                                                    <a href="view.html" class="btn btn-white btn-sm"><i class="fa fa-trash"></i>  删除</a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    [/#list]
+                                [/#if]
                                 </tbody>
                             </table>
                         </div>
-                        <div class="pages border-top">
-                            <div class="row">
-                                <div class="col-md-4"><div class="m-t-md">当前显示 1 到 10 条，共 57 条</div></div>
-                                <div class="col-md-7 footable-visible">
-                                    <ul class="pagination pull-right">
-                                        <li class="footable-page-arrow disabled"><a data-page="first" href="#first">«</a></li>
-                                        <li class="footable-page-arrow disabled"><a data-page="prev" href="#prev">‹</a></li>
-                                        <li class="footable-page active"><a data-page="0" href="#">1</a></li>
-                                        <li class="footable-page"><a data-page="1" href="#">2</a></li>
-                                        <li class="footable-page"><a data-page="1" href="#">3</a></li>
-                                        <li class="footable-page"><a data-page="1" href="#">4</a></li>
-                                        <li class="footable-page"><a data-page="1" href="#">5</a></li>
-                                        <li class="footable-page"><a data-page="1" href="#">6</a></li>
-                                        <li class="footable-page-arrow"><a data-page="next" href="#next">›</a></li>
-                                        <li class="footable-page-arrow"><a data-page="last" href="#last">»</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                        [#--<div class="pages border-top">--]
+                            [#--<div class="row">--]
+                                [#--<div class="col-md-4"><div class="m-t-md">当前显示 1 到 10 条，共 57 条</div></div>--]
+                                [#--<div class="col-md-7 footable-visible">--]
+                                    [#--<ul class="pagination pull-right">--]
+                                        [#--<li class="footable-page-arrow disabled"><a data-page="first" href="#first">«</a></li>--]
+                                        [#--<li class="footable-page-arrow disabled"><a data-page="prev" href="#prev">‹</a></li>--]
+                                        [#--<li class="footable-page active"><a data-page="0" href="#">1</a></li>--]
+                                        [#--<li class="footable-page"><a data-page="1" href="#">2</a></li>--]
+                                        [#--<li class="footable-page"><a data-page="1" href="#">3</a></li>--]
+                                        [#--<li class="footable-page"><a data-page="1" href="#">4</a></li>--]
+                                        [#--<li class="footable-page"><a data-page="1" href="#">5</a></li>--]
+                                        [#--<li class="footable-page"><a data-page="1" href="#">6</a></li>--]
+                                        [#--<li class="footable-page-arrow"><a data-page="next" href="#next">›</a></li>--]
+                                        [#--<li class="footable-page-arrow"><a data-page="last" href="#last">»</a></li>--]
+                                    [#--</ul>--]
+                                [#--</div>--]
+                            [#--</div>--]
+                        [#--</div>--]
+                        <!-- 分页表单 -->
+                        <form action="${ctx }/news/list_page2" id="newsPageForm">
+                            <!-- 查询条件，用隐藏表单域 -->
+                            <input type="hidden" value="${keywords! }" name="keywords" />
+
+                            [#assign formId = "productsPageForm"]<!-- formId: 分页控件表单ID -->
+                                [#assign showPageId = "ibox"]<!-- showPageId: ajax异步分页获取的数据需要加载到指定的位置 -->
+                                    [#include "/common/page.ftl"/]<!-- 分页控键 -->
+                        </form>
 
                     </div>
                 </div>

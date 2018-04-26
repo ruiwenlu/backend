@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.springboot.mapper.product.ProductMapper">
+
+	<resultMap id="productsMap" type="cn.springboot.model.product.Product">
+		<result column="id" property="id" />
+		<result column="name_zh" property="nameZH" />
+		<result column="name_en" property="nameEN" />
+		<result column="delivery_time" property="deliveryTime" />
+		<result column="stock" property="stock" />
+		<result column="sale_price" property="salePrice" />
+		<result column="market_price" property="marketPrice" />
+		<result column="long_description" property="longDescription" />
+		<result column="description" property="description" />
+		<result column="reviews" property="reviews" />
+		<result column="sale_type" property="saleType" />
+		<result column="stars" property="stars" />
+		<result column="create_time" property="createTime" />
+		<result column="update_time" property="updateTime" />
+	</resultMap>
+
+	<insert id="insert" parameterType="cn.springboot.model.product.Product">
+		INSERT INTO product(id , name_zh , name_en , delivery_time , stock , sale_price, market_price
+		, long_description, description, reviews, sale_type, stars, create_time, update_time)
+		VALUES(#{id} , #{nameZH} , #{nameEN} , #{deliveryTime} , #{stock} , #{salePrice}, #{marketPrice} ,
+		 #{longDescription} , #{description} , #{reviews} , #{saleType},#{stars} , #{createTime} , #{updateTime})
+	</insert>
+
+	<sql id="find_xxx">
+		<![CDATA[
+			SELECT id , name_zh , name_en , delivery_time , stock , sale_price, market_price
+		, long_description, description, reviews, sale_type, stars, create_time, update_time
+	    ]]>
+	</sql>
+
+	<sql id="from_xxx">
+		<![CDATA[
+	    	FROM product
+	    ]]>
+	</sql>
+
+	<sql id="where_xxx">
+		<![CDATA[
+	    	WHERE 1=1
+	    ]]>
+	</sql>
+
+	<select id="findById" parameterType="string" resultMap="productsMap">
+		<include refid="find_xxx" />
+		<include refid="from_xxx" />
+		<![CDATA[
+			WHERE id=#{id}
+		]]>
+	</select>
+
+	<select id="findProductsByKeywords" parameterType="string" resultMap="productsMap">
+		<include refid="find_xxx" />
+		<include refid="from_xxx" />
+		<where>
+			<if test="keywords != null and keywords != ''"> name_zh like '%${keywords}%'</if>
+		</where>
+	</select>
+
+	<select id="findProductsByPage" parameterType="string" resultMap="productsMap">
+		<include refid="find_xxx" />
+		<include refid="from_xxx" />
+		<where>
+			<if test="keywords != null and keywords != ''"> name_zh like '%${keywords}%'</if>
+		</where>
+		order by create_time desc
+	</select>
+
+	<update id="update" parameterType="cn.springboot.model.product.Product">
+		UPDATE product
+		<set>
+			<if test="nameZH != null and nameZH!='' ">
+				name_zh = #{nameZH},
+			</if>
+			<if test="nameEN != null and nameEN!='' ">
+				name_en = #{nameEN},
+			</if>
+			<if test="deliveryTime != null and deliveryTime!='' ">
+				delivery_time = #{deliveryTime},
+			</if>
+			<if test="stock != null and stock!='' ">
+				stock = #{stock},
+			</if>
+			<if test="salePrice != null">
+				sale_price = #{salePrice},
+			</if>
+			<if test="marketPrice != null">
+				market_price = #{marketPrice},
+			</if>
+			<if test="longDescription != null and longDescription!='' ">
+				long_description = #{longDescription},
+			</if>
+			<if test="description != null and description!='' ">
+				description = #{description},
+			</if>
+			<if test="reviews != null">
+				reviews = #{reviews},
+			</if>
+			<if test="saleType != null">
+				sale_type = #{saleType},
+			</if>
+			<if test="stars != null">
+				stars = #{stars},
+			</if>
+				update_time = now()
+		</set>
+		WHERE id = #{id}
+	</update>
+
+	<delete id="delete" parameterType="string">
+		DELETE FROM product WHERE id #{id}
+	</delete>
+
+</mapper>
